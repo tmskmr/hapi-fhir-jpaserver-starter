@@ -355,3 +355,5 @@ docker build --target=release-distroless -t hapi-fhir:distroless .
 
 Note that distroless images are also automatically build and pushed to the container registry,
 see the `-distroless` suffix in the image tags.
+
+Kimura CI test
