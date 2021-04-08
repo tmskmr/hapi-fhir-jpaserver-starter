@@ -88,7 +88,7 @@ hapi:
       # Supports multiple, comma separated allowed origin entries
       # cors.allowed_origin=http://localhost:8080,https://localhost:8080,https://fhirtest.uhn.ca
       allowed_origin:
-        - '*'
+        - 'http://httpd15-hapi-fhir-jpaserver.cparkcluster-cdc47516d6326b4769397c6a4d5e1547-0000.jp-tok.containers.appdomain.cloud'
 
 #    logger:
 #      error_format: 'ERROR - ${requestVerb} ${requestUrl}'
