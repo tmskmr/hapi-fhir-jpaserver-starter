@@ -83,6 +83,7 @@ hapi:
     #  allow_references_across_partitions: false
     #  partitioning_include_in_search_hashes: false
     cors:
+
       allow_Credentials: false
       # Supports multiple, comma separated allowed origin entries
       # cors.allowed_origin=http://localhost:8080,https://localhost:8080,https://fhirtest.uhn.ca
