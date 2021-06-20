@@ -1,9 +1,9 @@
 package ca.uhn.fhir.jpa.starter;
 
+import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
-
-import javax.servlet.ServletException;
 
 @Import(AppProperties.class)
 public class JpaRestfulServer extends BaseJpaRestfulServer {
@@ -22,7 +22,7 @@ public class JpaRestfulServer extends BaseJpaRestfulServer {
     super.initialize();
 
     // Add your own customization here
-
+    registerInterceptor(new MyInterceptor(this, appProperties));
   }
 
 }

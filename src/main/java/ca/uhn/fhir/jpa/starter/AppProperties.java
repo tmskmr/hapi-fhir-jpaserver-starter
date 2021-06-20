@@ -1,20 +1,22 @@
 package ca.uhn.fhir.jpa.starter;
 
 
-import ca.uhn.fhir.context.FhirVersionEnum;
-import ca.uhn.fhir.jpa.api.config.DaoConfig.ClientIdStrategyEnum;
-import ca.uhn.fhir.jpa.model.entity.NormalizedQuantitySearchLevel;
-import ca.uhn.fhir.rest.api.EncodingEnum;
-import com.google.common.collect.ImmutableList;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 import org.hl7.fhir.r4.model.Bundle;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.google.common.collect.ImmutableList;
+
+import ca.uhn.fhir.context.FhirVersionEnum;
+import ca.uhn.fhir.jpa.api.config.DaoConfig.ClientIdStrategyEnum;
+import ca.uhn.fhir.jpa.model.entity.NormalizedQuantitySearchLevel;
+import ca.uhn.fhir.rest.api.EncodingEnum;
 
 @ConfigurationProperties(prefix = "hapi.fhir")
 @Configuration
@@ -67,23 +69,23 @@ public class AppProperties {
   private Boolean lastn_enabled = false;
   private NormalizedQuantitySearchLevel normalized_quantity_search_level = NormalizedQuantitySearchLevel.NORMALIZED_QUANTITY_SEARCH_NOT_SUPPORTED;
 
-  private Boolean use_apache_address_strategy = false;
-  private Boolean use_apache_address_strategy_https = false;
+  private Boolean dump_enabled = false;
+  private String dump_directory = null;
 
-  public Boolean getUse_apache_address_strategy() {
-    return use_apache_address_strategy;
+  public Boolean getDump_enabled() {
+	  return this.dump_enabled;
   }
 
-  public void setUse_apache_address_strategy(Boolean use_apache_address_strategy) {
-    this.use_apache_address_strategy = use_apache_address_strategy;
+  public void setDump_enabled(Boolean dump_enabled) {
+	  this.dump_enabled = dump_enabled;
   }
 
-    public Boolean getUse_apache_address_strategy_https() {
-    return use_apache_address_strategy_https;
+  public String getDump_directory() {
+	  return this.dump_directory;
   }
 
-  public void setUse_apache_address_strategy_https(Boolean use_apache_address_strategy_https) {
-    this.use_apache_address_strategy_https = use_apache_address_strategy_https;
+  public void setDump_directory(String dump_directory) {
+	  this.dump_directory = dump_directory;
   }
 
   public Integer getDefer_indexing_for_codesystems_of_size() {
@@ -440,7 +442,6 @@ public class AppProperties {
   public void setNormalized_quantity_search_level(NormalizedQuantitySearchLevel normalized_quantity_search_level) {
 	this.normalized_quantity_search_level = normalized_quantity_search_level;
   }
-
 
 public static class Cors {
     private Boolean allow_Credentials = true;
