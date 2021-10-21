@@ -15,7 +15,7 @@
         <groupId>ca.uhn.hapi.fhir</groupId>
         <artifactId>hapi-fhir</artifactId>
         <!-- FIMXME KBD Change this to 5.3.0 BEFORE merging this code to master !  -->
-        <version>5.3.0</version>
+        <version>5.3.3</version>
     </parent>
 
     <artifactId>hapi-fhir-jpaserver-starter</artifactId>
@@ -311,6 +311,21 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <!--
+                There is a bug in 3.1.2 that prevents go-offline from working
+                Reported here:
+                https://issues.apache.org/jira/browse/MDEP-739
+                -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
 
         <!-- Tells Maven to name the generated WAR file as ROOT.war -->
         <finalName>ROOT</finalName>
